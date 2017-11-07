@@ -1,0 +1,42 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>doctorDetailPage</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="doctor">
+
+    <ion-card>
+
+        <ion-card-content>
+            <img src="{{doctor.picture}}"/>
+            <h2>{{doctor.name}}</h2>
+            <h3>{{doctor.title}}</h3>
+        </ion-card-content>
+
+        <ion-list>
+       	 <a ion-item>
+                <ion-icon name="school" item-left></ion-icon>
+                <p>Education</p>
+                <h2>{{doctor.education}}</h2>
+            </a>
+            <a href="tel:{{doctor.phone}}" ion-item>
+                <ion-icon name="call" item-left></ion-icon>
+                <p>Call Office</p>
+                <h2>{{doctor.phone}}</h2>
+            </a>
+            <a href="tel:{{doctor.mobilePhone}}" ion-item>
+                <ion-icon name="call" item-left></ion-icon>
+                <p>Call Mobile</p>
+                <h2>{{doctor.mobilePhone}}</h2>
+            </a>
+            
+        </ion-list>
+        <button ion-button full (click)= "bookAppointment(doctor)">Book Appointment</button>
+    </ion-card>
+
+</ion-content>

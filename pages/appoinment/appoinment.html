@@ -1,0 +1,60 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Book Appoinment</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<form [formGroup]="appoinmentForm">
+<ion-item>
+    <ion-label floating >Full Name</ion-label>
+    <ion-input type="text" formControlName="name" name="name" [class.invalid]="!appoinmentForm.controls.name.valid && (appoinmentForm.controls.name.dirty || submitAttempt)"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="!appoinmentForm.controls.name.valid  && (appoinmentForm.controls.name.dirty || submitAttempt)">
+                <p style="color: #ea6153;">Please enter a valid name.</p>
+    </ion-item>
+
+  <ion-item>
+    <ion-label floating >Email</ion-label>
+    <ion-input type="email" formControlName="email" name="email" [class.invalid]="!appoinmentForm.controls.email.valid && (appoinmentForm.controls.email.dirty || submitAttempt)"></ion-input>
+  </ion-item>
+   <ion-item *ngIf="!appoinmentForm.controls.email.valid  && (appoinmentForm.controls.email.dirty || submitAttempt)">
+                <p style="color: #ea6153;">Please enter a valid email.</p>
+    </ion-item>
+
+  <ion-item>
+    <ion-label floating >Mobile Number</ion-label>
+    <ion-input type="number" formControlName="mobilePhone" name="mobilePhone" [class.invalid]="!appoinmentForm.controls.mobilePhone.valid && (appoinmentForm.controls.mobilePhone.dirty || submitAttempt)"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="!appoinmentForm.controls.mobilePhone.valid  && (appoinmentForm.controls.mobilePhone.dirty || submitAttempt)">
+                <p style="color: #ea6153;">Please enter a valid mobile.</p>
+  </ion-item>
+
+<ion-item>
+      <ion-label>Select Time</ion-label>
+      <ion-select formControlName="time" submitText="Okay" cancelText="Close" [class.invalid]="!appoinmentForm.controls.time.valid && (appoinmentForm.controls.time.dirty || submitAttempt)">
+        <ion-option value="9 AM">9 AM</ion-option>
+        <ion-option value="10 AM">10 AM</ion-option>
+        <ion-option value="11:15 AM">11:15 AM</ion-option>
+        <ion-option value="4 PM">4 PM</ion-option>
+        <ion-option value="4:30 PM">4:30 PM </ion-option>
+        <ion-option value="6 PM">6 PM</ion-option>
+        <ion-option value="7 PM">7 PM</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item *ngIf="!appoinmentForm.controls.time.valid  && (appoinmentForm.controls.time.dirty || submitAttempt)">
+                <p style="color: #ea6153;">Please select Time.</p>
+  </ion-item>
+
+</form>
+<ion-item>
+  <ion-label>Date</ion-label>
+  <ion-datetime displayFormat="MMM DD" min="{{myDate}}" max="2050-10-31"  [(ngModel)]="myDate"></ion-datetime>
+</ion-item>
+
+<button ion-button full (click)="book()">Book</button>
+</ion-content>

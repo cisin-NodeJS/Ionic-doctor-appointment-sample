@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+     Register
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<ion-list>
+
+<form [formGroup]="myForm">
+   <ion-item>
+    <ion-label floating>Full Name</ion-label>
+    <ion-input type="text" formControlName="name" [class.invalid]="!myForm.controls.name.valid && (myForm.controls.name.dirty || submitAttempt)"></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf="!myForm.controls.name.valid  && (myForm.controls.name.dirty || submitAttempt)">
+                <p style="color: #ea6153;">Please enter a valid name.</p>
+    </ion-item>
+
+  <ion-item>
+    <ion-label floating>Email</ion-label>
+    <ion-input type="text" formControlName="email" [class.invalid]="!myForm.controls.email.valid && (myForm.controls.email.dirty || submitAttempt)"></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf="!myForm.controls.email.valid  && (myForm.controls.email.dirty || submitAttempt)">
+                <p style="color: #ea6153;">Please enter a valid email.</p>
+    </ion-item>
+
+  <ion-item>
+    <ion-label floating>Password</ion-label>
+    <ion-input type="password" formControlName="password" [class.invalid]="!myForm.controls.password.valid && (myForm.controls.password.dirty || submitAttempt)"></ion-input>
+  </ion-item>
+
+    <ion-item *ngIf="!myForm.controls.password.valid  && (myForm.controls.password.dirty || submitAttempt)">
+                <p style="color: #ea6153;">Please enter a valid password.</p>
+    </ion-item>
+
+  <ion-item>
+    <ion-label floating>Address</ion-label>
+    <ion-input type="text" formControlName="address" [class.invalid]="!myForm.controls.address.valid && (myForm.controls.address.dirty || submitAttempt)"></ion-input>
+  </ion-item>
+
+    <ion-item *ngIf="!myForm.controls.address.valid  && (myForm.controls.address.dirty || submitAttempt)">
+                <p style="color: #ea6153;">Please enter address.</p>
+    </ion-item>
+
+  <ion-item>
+    <ion-label floating>Mobile Number</ion-label>
+    <ion-input type="number" formControlName="phone" [class.invalid]="!myForm.controls.phone.valid && (myForm.controls.phone.dirty || submitAttempt)"></ion-input>
+  </ion-item>
+
+    <ion-item *ngIf="!myForm.controls.phone.valid  && (myForm.controls.phone.dirty || submitAttempt)">
+                <p style="color: #ea6153;">Please enter mobile number.</p>
+    </ion-item>
+
+</form>
+
+</ion-list>
+
+<div padding>
+<button  ion-button block (click)="Register()" >Register</button>
+</div>
+</ion-content>

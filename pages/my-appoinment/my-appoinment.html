@@ -1,0 +1,39 @@
+
+<ion-header>
+
+  <ion-navbar>
+  <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>MyAppoinment</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="content">
+<ion-card *ngFor="let item of items">
+  <ion-card-header color="primary">
+   {{item.date | date}}
+  </ion-card-header>
+
+  <ion-list>
+    <ion-item>
+      <ion-label item-start>Doctor Name :</ion-label>
+       <ion-label item-end>{{item.doctorName}}</ion-label>
+   </ion-item>
+
+   <ion-item>
+      <ion-label item-start>Patient Name :</ion-label>
+       <ion-label item-end>{{item.patientName}}</ion-label>
+   </ion-item>
+
+   <ion-item>
+      <ion-label item-start>Appoinment time :</ion-label>
+       <ion-label item-end>{{item.time}}</ion-label>
+   </ion-item>
+
+  </ion-list>
+</ion-card>
+
+</ion-content>

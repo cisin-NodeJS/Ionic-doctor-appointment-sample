@@ -1,0 +1,44 @@
+
+<ion-header>
+
+  <ion-navbar>
+   <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="myuser">
+
+    <ion-card>
+
+        <ion-card-content>
+            <img src="assets/img/user-img.png"/>
+            <h2>{{name}}</h2>
+            <!-- <h3>{{doctor.title}}</h3> -->
+        </ion-card-content>
+
+        <ion-list>
+       	 <a ion-item>
+                <ion-icon name="mail" item-left></ion-icon>
+                <p>Email</p>
+                <h2>{{email}}</h2>
+            </a>
+            <a ion-item>
+                <ion-icon name="home" item-left></ion-icon>
+                <p>Address</p>
+                <h2>{{address}}</h2>
+            </a>
+            <a href="tel:{{phone}}" ion-item>
+                <ion-icon name="call" item-left></ion-icon>
+                <p>Mobile Number</p>
+                <h2>{{phone}}</h2>
+            </a>
+           
+        </ion-list>
+    </ion-card>
+
+</ion-content>

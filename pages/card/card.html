@@ -1,0 +1,40 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Card Info</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    <ion-label > Pay $10 Service charge using Stripe</ion-label>
+  </ion-item>
+<form [formGroup]="cardForm">
+<ion-item>
+    <ion-label floating >Card Number</ion-label>
+    <ion-input type="number" formControlName="cardnumber" name="cardnumber" [class.invalid]="!cardForm.controls.cardnumber.valid && (cardForm.controls.cardnumber.dirty || submitAttempt)" [limit-to]='16' value = "4242424242424242"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="!cardForm.controls.cardnumber.valid  && (cardForm.controls.cardnumber.dirty || submitAttempt)">
+                <p style="color: #ea6153;">Please enter a valid card number.</p>
+    </ion-item>
+
+  <ion-item>
+    <ion-label floating >CVV</ion-label>
+    <ion-input type="number" formControlName="cvv" name="cvv" [class.invalid]="!cardForm.controls.cvv.valid && (cardForm.controls.cvv.dirty || submitAttempt)" [limit-to]='3' value = "220"></ion-input>
+  </ion-item>
+   <ion-item *ngIf="!cardForm.controls.cvv.valid  && (cardForm.controls.cvv.dirty || submitAttempt)">
+                <p style="color: #ea6153;">Please enter a valid cvv.</p>
+    </ion-item>
+
+</form>
+
+  <ion-item>
+  <ion-label>Date</ion-label>
+  <ion-datetime displayFormat="MMM YYYY" min="{{myDate}}" max="2100-12-31"  [(ngModel)]="myDate"></ion-datetime>
+  </ion-item>
+
+<button ion-button full (click)="pay()">Pay</button>
+</ion-content>
